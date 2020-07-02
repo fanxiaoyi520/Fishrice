@@ -1,0 +1,26 @@
+[
+  {
+    "className" : "JJHomeVC",
+    "title" : "最新消息",
+    "imageName" : "icon_xx_2",
+    "selectImageName" : "icon_xx_1"
+    },
+  {
+    "className" : "JJMessageVC",
+    "title" : "品牌资讯",
+    "imageName" : "icon_zx_2",
+   "selectImageName" : "icon_zx_1"
+  },
+  {
+    "className" : "JJDiscoverVC",
+    "title" : "扫描账单",
+    "imageName" : "icon_zd_2",
+   "selectImageName" : "icon_zd_1"
+  },
+  {
+    "className" : "JJProfileVC",
+    "title" : "会员中心",
+    "imageName" : "icon_hy_2",
+   "selectImageName" : "icon_hy_1"
+ }
+]

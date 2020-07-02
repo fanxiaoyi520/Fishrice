@@ -1,0 +1,15 @@
+platform :ios, '8.0'
+inhibit_all_warnings!
+
+target 'JJSliderViewController' do
+use_frameworks!
+
+pod 'AFNetworking'
+pod 'MJExtension'
+pod 'IQKeyboardManager'
+pod 'MBProgressHUD'
+pod 'SGQRCode'
+pod 'SDWebImage'
+pod 'MJRefresh'
+pod 'TYAttributedLabel'
+end
