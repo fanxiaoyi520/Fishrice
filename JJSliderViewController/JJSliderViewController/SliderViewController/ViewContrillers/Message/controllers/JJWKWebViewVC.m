@@ -61,7 +61,12 @@
     self.myWebView.frame = self.view.bounds;
     [self.view addSubview:self.myProgressView];
     
-    [self.myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
+    if (self.stringValue) {
+        [self.myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.stringValue]]];
+    } else {
+        [self.myWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
+    }
+
 
 }
 

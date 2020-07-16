@@ -12,4 +12,5 @@ pod 'SGQRCode'
 pod 'SDWebImage'
 pod 'MJRefresh'
 pod 'TYAttributedLabel'
+pod 'YYText'
 end

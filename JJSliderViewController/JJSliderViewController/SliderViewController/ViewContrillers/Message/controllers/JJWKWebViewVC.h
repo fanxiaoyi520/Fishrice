@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JJWKWebViewVC : UIViewController
 
 @property (nonatomic ,copy)NSString *navtitle;
+@property (nonatomic ,copy)NSString *stringValue;
 @end
 
 NS_ASSUME_NONNULL_END

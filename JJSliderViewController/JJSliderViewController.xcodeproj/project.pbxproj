@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		384DE95A24AD833600C53C76 /* UIView+BorderLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 384DE95924AD833600C53C76 /* UIView+BorderLine.m */; };
+		384DE96324ADE3DB00C53C76 /* UIButton+Wave.m in Sources */ = {isa = PBXBuildFile; fileRef = 384DE96224ADE3DB00C53C76 /* UIButton+Wave.m */; };
+		3881D25624BFE05E007EED36 /* JJAboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3881D25524BFE05E007EED36 /* JJAboutUsVC.m */; };
+		3881D25A24BFE8A6007EED36 /* icon_mine_setup_more@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3881D25724BFE8A5007EED36 /* icon_mine_setup_more@3x.png */; };
+		3881D25B24BFE8A6007EED36 /* icon_mine_setup_more@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3881D25824BFE8A6007EED36 /* icon_mine_setup_more@1x.png */; };
+		3881D25C24BFE8A6007EED36 /* icon_mine_setup_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3881D25924BFE8A6007EED36 /* icon_mine_setup_more@2x.png */; };
+		3881D25F24BFF57D007EED36 /* 隐私协议.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3881D25D24BFF57D007EED36 /* 隐私协议.txt */; };
+		3881D26024BFF57D007EED36 /* 用户协议.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3881D25E24BFF57D007EED36 /* 用户协议.txt */; };
 		38897F2A24A97C90002CC36F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38897F2824A97C90002CC36F /* Main.storyboard */; };
 		38897F2C24A97C93002CC36F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38897F2B24A97C93002CC36F /* Assets.xcassets */; };
 		38897F2F24A97C93002CC36F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38897F2D24A97C93002CC36F /* LaunchScreen.storyboard */; };
@@ -118,6 +125,7 @@
 		3889806324AC7684002CC36F /* JJHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3889806224AC7684002CC36F /* JJHomeModel.m */; };
 		3889806624AC76CB002CC36F /* JJHomeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3889806524AC76CB002CC36F /* JJHomeListModel.m */; };
 		3889806924AC9105002CC36F /* JJHomeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3889806824AC9105002CC36F /* JJHomeDetailVC.m */; };
+		38C9338024AF012700200E56 /* UILabel+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C9337F24AF012700200E56 /* UILabel+Add.m */; };
 		C5D985303EAB0217B027061A /* Pods_JJSliderViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1293A0DC0AC47E98477DB298 /* Pods_JJSliderViewController.framework */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +133,15 @@
 		1293A0DC0AC47E98477DB298 /* Pods_JJSliderViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJSliderViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		384DE95824AD833600C53C76 /* UIView+BorderLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+BorderLine.h"; sourceTree = "<group>"; };
 		384DE95924AD833600C53C76 /* UIView+BorderLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+BorderLine.m"; sourceTree = "<group>"; };
+		384DE96124ADE3DB00C53C76 /* UIButton+Wave.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Wave.h"; sourceTree = "<group>"; };
+		384DE96224ADE3DB00C53C76 /* UIButton+Wave.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Wave.m"; sourceTree = "<group>"; };
+		3881D25424BFE05E007EED36 /* JJAboutUsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJAboutUsVC.h; sourceTree = "<group>"; };
+		3881D25524BFE05E007EED36 /* JJAboutUsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJAboutUsVC.m; sourceTree = "<group>"; };
+		3881D25724BFE8A5007EED36 /* icon_mine_setup_more@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_mine_setup_more@3x.png"; sourceTree = "<group>"; };
+		3881D25824BFE8A6007EED36 /* icon_mine_setup_more@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_mine_setup_more@1x.png"; sourceTree = "<group>"; };
+		3881D25924BFE8A6007EED36 /* icon_mine_setup_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_mine_setup_more@2x.png"; sourceTree = "<group>"; };
+		3881D25D24BFF57D007EED36 /* 隐私协议.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "隐私协议.txt"; sourceTree = "<group>"; };
+		3881D25E24BFF57D007EED36 /* 用户协议.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "用户协议.txt"; sourceTree = "<group>"; };
 		38897F1C24A97C90002CC36F /* JJSliderViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJSliderViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38897F2924A97C90002CC36F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38897F2B24A97C93002CC36F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -281,6 +298,8 @@
 		3889806524AC76CB002CC36F /* JJHomeListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJHomeListModel.m; sourceTree = "<group>"; };
 		3889806724AC9105002CC36F /* JJHomeDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJHomeDetailVC.h; sourceTree = "<group>"; };
 		3889806824AC9105002CC36F /* JJHomeDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJHomeDetailVC.m; sourceTree = "<group>"; };
+		38C9337E24AF012700200E56 /* UILabel+Add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+Add.h"; sourceTree = "<group>"; };
+		38C9337F24AF012700200E56 /* UILabel+Add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Add.m"; sourceTree = "<group>"; };
 		D203FFBDF9A3D66359FEC3C4 /* Pods-JJSliderViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJSliderViewController.release.xcconfig"; path = "Target Support Files/Pods-JJSliderViewController/Pods-JJSliderViewController.release.xcconfig"; sourceTree = "<group>"; };
 		D907A47E33CC1A559014DBE3 /* Pods-JJSliderViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJSliderViewController.debug.xcconfig"; path = "Target Support Files/Pods-JJSliderViewController/Pods-JJSliderViewController.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -368,6 +387,10 @@
 				38897F4A24A97CC2002CC36F /* ZDPayFuncTool.m */,
 				384DE95824AD833600C53C76 /* UIView+BorderLine.h */,
 				384DE95924AD833600C53C76 /* UIView+BorderLine.m */,
+				384DE96124ADE3DB00C53C76 /* UIButton+Wave.h */,
+				384DE96224ADE3DB00C53C76 /* UIButton+Wave.m */,
+				38C9337E24AF012700200E56 /* UILabel+Add.h */,
+				38C9337F24AF012700200E56 /* UILabel+Add.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -414,6 +437,9 @@
 		38897F5C24A97CC2002CC36F /* h5 */ = {
 			isa = PBXGroup;
 			children = (
+				3881D25824BFE8A6007EED36 /* icon_mine_setup_more@1x.png */,
+				3881D25924BFE8A6007EED36 /* icon_mine_setup_more@2x.png */,
+				3881D25724BFE8A5007EED36 /* icon_mine_setup_more@3x.png */,
 				38897F5D24A97CC2002CC36F /* pic_SQ@2x.png */,
 				38897F5E24A97CC2002CC36F /* icon_more_3@2x.png */,
 				38897F5F24A97CC2002CC36F /* icon_collect@2x.png */,
@@ -590,6 +616,8 @@
 		38897FB724A97CC3002CC36F /* Signup(登陆注册模块) */ = {
 			isa = PBXGroup;
 			children = (
+				3881D25D24BFF57D007EED36 /* 隐私协议.txt */,
+				3881D25E24BFF57D007EED36 /* 用户协议.txt */,
 				38897FB824A97CC3002CC36F /* models */,
 				38897FBB24A97CC3002CC36F /* controllers */,
 			);
@@ -633,6 +661,8 @@
 				3889803324A9F2D9002CC36F /* JJBranchAddressVC.m */,
 				3889806724AC9105002CC36F /* JJHomeDetailVC.h */,
 				3889806824AC9105002CC36F /* JJHomeDetailVC.m */,
+				3881D25424BFE05E007EED36 /* JJAboutUsVC.h */,
+				3881D25524BFE05E007EED36 /* JJAboutUsVC.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -741,6 +771,7 @@
 				38897FD924A97CC3002CC36F /* icon_collect@2x.png in Resources */,
 				38897FFF24A97CC3002CC36F /* logo@2x.png in Resources */,
 				3889800724A97CC3002CC36F /* icon_star@2x.png in Resources */,
+				3881D25C24BFE8A6007EED36 /* icon_mine_setup_more@2x.png in Resources */,
 				3889800C24A97CC3002CC36F /* icon_go@2x.png in Resources */,
 				3889800D24A97CC3002CC36F /* icon_yh_2@2x.png in Resources */,
 				38897FDB24A97CC3002CC36F /* icon_facebook@2x.png in Resources */,
@@ -754,8 +785,11 @@
 				3889800A24A97CC3002CC36F /* icon_areacode_up@2x.png in Resources */,
 				3889800F24A97CC3002CC36F /* pic_2_losecode@2x.png in Resources */,
 				38897FEC24A97CC3002CC36F /* icon_eye-close@2x.png in Resources */,
+				3881D25A24BFE8A6007EED36 /* icon_mine_setup_more@3x.png in Resources */,
 				38897F2F24A97C93002CC36F /* LaunchScreen.storyboard in Resources */,
+				3881D26024BFF57D007EED36 /* 用户协议.txt in Resources */,
 				3889800924A97CC3002CC36F /* icon_eye-open@2x.png in Resources */,
+				3881D25B24BFE8A6007EED36 /* icon_mine_setup_more@1x.png in Resources */,
 				3889801C24A97CC3002CC36F /* controller.json in Resources */,
 				3889800124A97CC3002CC36F /* icon_ar@2x.png in Resources */,
 				38897FEB24A97CC3002CC36F /* icon_top_home@2x.png in Resources */,
@@ -786,6 +820,7 @@
 				3889800224A97CC3002CC36F /* icon_hy_2@2x.png in Resources */,
 				3889800024A97CC3002CC36F /* icon_back@2x.png in Resources */,
 				38897FE524A97CC3002CC36F /* icon_more_1@2x.png in Resources */,
+				3881D25F24BFF57D007EED36 /* 隐私协议.txt in Resources */,
 				38897FF524A97CC3002CC36F /* pic_yumai@2x.png in Resources */,
 				3889800424A97CC3002CC36F /* icon_gengduo_1@2x.png in Resources */,
 				38897FF224A97CC3002CC36F /* icon_menu@2x.png in Resources */,
@@ -857,6 +892,7 @@
 				3889802424A97CC3002CC36F /* ZDRegisterViewController.m in Sources */,
 				3889802224A97CC3002CC36F /* ZDLandViewController.m in Sources */,
 				3889801624A97CC3002CC36F /* JJDiscoverVC.m in Sources */,
+				3881D25624BFE05E007EED36 /* JJAboutUsVC.m in Sources */,
 				3889802524A97CC3002CC36F /* ZDForgetPassViewController.m in Sources */,
 				3889803D24AA0AED002CC36F /* JJCustomView.m in Sources */,
 				3889801924A97CC3002CC36F /* JJMessageModel.m in Sources */,
@@ -880,6 +916,7 @@
 				38897FD224A97CC3002CC36F /* AFNetworkingManager.m in Sources */,
 				3889804624AB10CC002CC36F /* JJBrandInfoModel.m in Sources */,
 				3889806624AC76CB002CC36F /* JJHomeListModel.m in Sources */,
+				38C9338024AF012700200E56 /* UILabel+Add.m in Sources */,
 				3889804324AB0C0E002CC36F /* JJMessageDetailModel.m in Sources */,
 				3889804F24AB1334002CC36F /* JJPageInfoListModel.m in Sources */,
 				38897FCB24A97CC3002CC36F /* AppDelegate.m in Sources */,
@@ -893,6 +930,7 @@
 				38897FD524A97CC3002CC36F /* ZDNaviBarView.m in Sources */,
 				3889802824A985C9002CC36F /* JJScanningViewController.m in Sources */,
 				3889802024A97CC3002CC36F /* ZDChangeCompleteViewController.m in Sources */,
+				384DE96324ADE3DB00C53C76 /* UIButton+Wave.m in Sources */,
 				38897F3224A97C93002CC36F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

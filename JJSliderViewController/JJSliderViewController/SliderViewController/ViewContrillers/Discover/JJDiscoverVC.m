@@ -8,7 +8,7 @@
 
 #import "JJDiscoverVC.h"
 #import <AVFoundation/AVFoundation.h>
-
+#import "JJWKWebViewVC.h"
 #define QRCodeWidth  260.0
 
 typedef void (^HasScan)(NSString *result);
@@ -26,7 +26,7 @@ typedef void (^HasScan)(NSString *result);
 @implementation JJDiscoverVC
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    [self.session startRunning];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *token = [userDefaults objectForKey:@"token"];
     if (!token) {
@@ -163,8 +163,10 @@ typedef void (^HasScan)(NSString *result);
            
        AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
        stringValue = metadataObject.stringValue;
-       
-       [self showMessage:stringValue target:nil];
+
+       JJWKWebViewVC *vc = [JJWKWebViewVC new];
+       vc.stringValue = stringValue;
+       [self.navigationController pushViewController:vc animated:YES];
    }
 }
 

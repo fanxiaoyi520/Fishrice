@@ -300,10 +300,7 @@ typedef void (^ClickBlock)(CGFloat introduce_Height);
             CGRect detailLabelRect = [ZDPayFuncTool getStringWidthAndHeightWithStr:self.model.brandInfo.introduce withFont:label_font_PingFangSC_Regular(14)];
             self.introduceLab.frame = CGRectMake(self.nameLab.left, self.nameLab.bottom+14, ScreenWidth-40, detailLabelRect.size.height);
             self.introduceLab.text = self.model.brandInfo.introduce;
-            NSDictionary *attribute = @{NSFontAttributeName: label_font_PingFangSC_Regular(14)};
-            CGSize labelSize = [self.introduceLab.text boundingRectWithSize:CGSizeMake(ScreenWidth-40, 5000) options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
-            self.introduceLab.frame = CGRectMake(self.introduceLab.frame.origin.x, self.introduceLab.frame.origin.y, self.introduceLab.frame.size.width, labelSize.height);
-            self.introduceLab.font = label_font_PingFangSC_Regular(14);
+            [self.introduceLab multiLineDisplay];
             
             self.lineView1.frame = CGRectMake(20, self.introduceLab.bottom+28, ScreenWidth-20-81, 1);
             self.moreBtn1.frame = CGRectMake(self.lineView1.right+14, self.introduceLab.bottom+20, 60, 14);
@@ -325,9 +322,8 @@ typedef void (^ClickBlock)(CGFloat introduce_Height);
                 label.frame =  CGRectMake(0, 104, arrayButton.width, 14);
                 label.text = obj.title;
             }];
-            
             if (self.clickBlock) {
-                self.clickBlock(labelSize.height-14);
+                self.clickBlock(self.introduceLab.height-14);
             }
             sender.selected = NO;
         } else {

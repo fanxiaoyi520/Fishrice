@@ -16,7 +16,7 @@
 @property (nonatomic ,strong)UIView *maskView;
 
 + (JJProxyView *)init_JJLeftViewWithVC:(ZDPayRootViewController *)vc;
-- (void)showPopupViewWithData;
+- (void)showPopupViewWithData:(NSString *)proxyStr;
 @end
 
 @implementation JJProxyView
@@ -50,18 +50,31 @@
     
     UILabel *label1 = [[UILabel alloc] init];
     label1.frame = CGRectMake(20, label.bottom+20, ScreenWidth-40, 22);
-    label1.text = @"我已阅读并同意：《平台使用协议》";
     label1.font = label_font_PingFangSC_Regular(14);
     label1.textColor =  [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1/1.0];
     [self addSubview:label1];
+    label1.tag = 100;
+    
+    UIScrollView *txtScrollView = [[UIScrollView alloc] init];
+    [self addSubview:txtScrollView];
+    txtScrollView.showsVerticalScrollIndicator = NO;
+    txtScrollView.showsHorizontalScrollIndicator = NO;
+    txtScrollView.tag = 50;
+    
+    UILabel *contentLab = [[UILabel alloc] init];
+    contentLab.font = label_font_PingFangSC_Regular(14);
+    contentLab.textColor =  [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1/1.0];
+    [txtScrollView addSubview:contentLab];
+    contentLab.tag = 200;
+    contentLab.numberOfLines = 0;
     
     UIView *lineView = [UIView new];
-    [self addSubview:lineView];
+    [txtScrollView addSubview:lineView];
     lineView.tag = 10;
     lineView.backgroundColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1/1.0];
 
     UIButton  *knownBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self addSubview:knownBtn];
+    [txtScrollView addSubview:knownBtn];
     knownBtn.titleLabel.font = label_font_PingFangSC_Regular(15);
     [knownBtn setTitle:@"知道了" forState:UIControlStateNormal];
     [knownBtn setTitleColor: [UIColor colorWithRed:140/255.0 green:239/255.0 blue:86/255.0 alpha:1/1.0] forState:UIControlStateNormal];
@@ -74,7 +87,7 @@
     return [[JJProxyView alloc] initWithFrame:CGRectZero withVC:vc];
 }
 
-- (void)showPopupViewWithData
+- (void)showPopupViewWithData:(NSString *)proxyStr
 {
     [self.myWindow addSubview:self];
     self.frame = CGRectMake(0,ScreenHeight, ScreenWidth, ScreenHeight-300);
@@ -85,12 +98,34 @@
         
     }];
     
-    UIView *lineView = [self viewWithTag:10];
-    lineView.frame = CGRectMake(0, self.height-56, ScreenWidth, 1);
     
-    UIButton *knownBtn = [self viewWithTag:20];
+    UILabel *label1 = [self viewWithTag:100];
+    UIScrollView *txtScrollView = [self viewWithTag:50];
+    txtScrollView.frame = CGRectMake(0, label1.bottom+10, ScreenWidth, self.height-label1.bottom-10);
+    label1.text = proxyStr;
+    
+    UILabel *contentLab = [txtScrollView viewWithTag:200];
+    contentLab.frame = CGRectMake(20, 10, ScreenWidth-40, 22);
+    contentLab.text = [NSString stringWithFormat:@"我已阅读并同意：%@",proxyStr];
+    contentLab.lineBreakMode = NSLineBreakByWordWrapping;
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"隐私协议" ofType:@"txt"];
+    NSString *dataFile = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    NSString *strUrl = [dataFile stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"];
+    NSMutableAttributedString* tncString = [[NSMutableAttributedString alloc] initWithString:strUrl];
+    contentLab.attributedText = tncString;
+    contentLab.frame = CGRectMake(20, 0, ScreenWidth-40, 22);
+    CGFloat height = [self getStringHeightWithText:contentLab.text font:label_font_PingFangSC_Regular(14) viewWidth:ScreenWidth-40];
+    contentLab.frame = CGRectMake(contentLab.origin.x, contentLab.origin.y, contentLab.size.width, height);
+    txtScrollView.contentSize = CGSizeMake(ScreenWidth-40, label1.bottom+height);
+
+    
+    UIView *lineView = [txtScrollView viewWithTag:10];
+    lineView.frame = CGRectMake(0, contentLab.bottom+10, ScreenWidth, 1);
+    
+    UIButton *knownBtn = [txtScrollView viewWithTag:20];
     CGRect knownBtnRect = [ZDPayFuncTool getStringWidthAndHeightWithStr:@"知道了" withFont:label_font_PingFangSC_Regular(15)];
-    knownBtn.frame = CGRectMake(ScreenWidth-knownBtnRect.size.width-20, self.height-40, knownBtnRect.size.width, 15);
+    knownBtn.frame = CGRectMake(ScreenWidth-knownBtnRect.size.width-20, contentLab.bottom+15, knownBtnRect.size.width, 15);
     
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
      byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii:CGSizeMake(10, 10)];
@@ -98,6 +133,21 @@
     maskLayer.frame = self.bounds;
     maskLayer.path = maskPath.CGPath;
     self.layer.mask = maskLayer;
+}
+
+//获取系统默认字符串高度
+- (CGFloat)getStringHeightWithText:(NSString *)text font:(UIFont *)font viewWidth:(CGFloat)width {
+    // 设置文字属性 要和label的一致
+    NSDictionary *attrs = @{NSFontAttributeName :font};
+    CGSize maxSize = CGSizeMake(width, MAXFLOAT);
+
+    NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
+
+    // 计算文字占据的宽高
+    CGSize size = [text boundingRectWithSize:maxSize options:options attributes:attrs context:nil].size;
+
+   // 当你是把获得的高度来布局控件的View的高度的时候.size转化为ceilf(size.height)。
+    return  ceilf(size.height);
 }
 
 - (void)closeThePopupView {
@@ -119,7 +169,7 @@
 @property (strong, nonatomic)CountDown *countDownForBtn;
 @property (nonatomic ,strong)UIButton *countDownBtn;
 @property (nonatomic ,strong)UIImageView *logoImageView;
-
+//@property (nonatomic ,strong)YYLabel *protocolLabel;
 @end
 
 @implementation ZDRegisterViewController
@@ -237,21 +287,62 @@
     boolProxyBtn.tag = 300;
     [self.view addSubview:boolProxyBtn];
     [boolProxyBtn setImage:[UIImage imageNamed:@"icon_choose_empty"] forState:UIControlStateNormal];
-    boolProxyBtn.frame = CGRectMake(77, ScreenHeight-44-7, 28, 28);
     [boolProxyBtn addTarget:self action:@selector(boolProxyBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
-    CGRect proxyrect = [ZDPayFuncTool getStringWidthAndHeightWithStr:@"我已閱讀並同意：《平臺使用協議》" withFont:label_font_PingFangSC_Regular(13)];
+    CGRect proxyrect = [ZDPayFuncTool getStringWidthAndHeightWithStr:@"我已閱讀並同意：《隐私协议》" withFont:label_font_PingFangSC_Regular(13)];
     UILabel *proxyLab = [[UILabel alloc] init];
     proxyLab.frame = CGRectMake(99, 769, 104, 13);
-    proxyLab.text = @"我已閱讀並同意：《平臺使用協議》";
+    proxyLab.text = @"我已閱讀並同意：《隐私协议》";
     proxyLab.font = label_font_PingFangSC_Regular(13);
     proxyLab.textColor = label_color_255;
     [self.view addSubview:proxyLab];
-    proxyLab.frame = CGRectMake(boolProxyBtn.right + 4, ScreenHeight-44, proxyrect.size.width, 13);
+//    [self protocolLabel];
+//    _protocolLabel.frame = CGRectMake(99, 769, 104, 13);
+    
+    proxyLab.frame = CGRectMake((ScreenWidth-proxyrect.size.width)/2+28+8, ScreenHeight-44, proxyrect.size.width, 13);
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(proxyLabAction:)];
     [proxyLab addGestureRecognizer:tap];
     proxyLab.userInteractionEnabled = YES;
+    boolProxyBtn.frame = CGRectMake(proxyLab.left-28-8, ScreenHeight-44-7, 28, 28);
 }
+
+//-(YYLabel *)protocolLabel{
+//    if (!_protocolLabel) {
+//        NSString *originText = @"我已閱讀並同意：《隐私协议》《用户协议》";
+//        NSMutableAttributedString  *text1 = [[NSMutableAttributedString alloc] initWithString:originText];
+//        text1.yy_font = label_font_PingFangSC_Regular(13);
+//        text1.yy_alignment = NSTextAlignmentLeft;
+//        text1.yy_color = label_color_255;
+//        [text1 yy_setColor:label_color_255 range:[originText rangeOfString:@"《隐私协议》"]];
+//        
+//        [text1 yy_setTextHighlightRange:[originText rangeOfString:@"《隐私协议》"]//设置点击的位置
+//                                  color:kMainColor
+//                        backgroundColor:[UIColor groupTableViewBackgroundColor]
+//                              tapAction:^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect)
+//         {
+//             NSLog(@"这里是点击事件");
+//
+//         }];
+//        [text1 yy_setColor:label_color_255 range:[originText rangeOfString:@"《用户协议》"]];
+//        
+//        [text1 yy_setTextHighlightRange:[originText rangeOfString:@"《用户协议》"]//设置点击的位置
+//                                  color:kMainColor
+//                        backgroundColor:[UIColor groupTableViewBackgroundColor]
+//                              tapAction:^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect)
+//         {
+//             NSLog(@"这里是点击事件");
+//
+//         }];
+//        YYLabel *titleLb                         = [[YYLabel alloc] init];
+//        titleLb.userInteractionEnabled  = YES;
+//        titleLb.numberOfLines           = 2;
+//        titleLb.attributedText = text1;
+//        titleLb.textVerticalAlignment   = YYTextVerticalAlignmentCenter;
+//        titleLb.backgroundColor = [UIColor clearColor];
+//        _protocolLabel = titleLb;
+//    }
+//    return _protocolLabel;
+//}
 
 #pragma mark - action
 - (void)textFieldAction:(UITextField *)textField {
@@ -324,7 +415,7 @@
     
     UIButton *btn = [self.view viewWithTag:300];
     if (btn.selected != YES) {
-        [self showMessage:@"請閱讀並同意：《平臺使用協議》" target:nil];
+        [self showMessage:@"請閱讀並同意：《隐私协议》" target:nil];
         return;
     }
     [self networking_Register];
@@ -386,7 +477,7 @@
 
 - (void)proxyLabAction:(UITapGestureRecognizer *)tap {
     JJProxyView *proxyView = [JJProxyView init_JJLeftViewWithVC:self];
-    [proxyView showPopupViewWithData];
+    [proxyView showPopupViewWithData:@"《隐私协议》"];
 }
 
 - (void)boolProxyBtnAction:(UIButton *)sender {

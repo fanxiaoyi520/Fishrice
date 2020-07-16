@@ -8,7 +8,7 @@
 
 #import "JJLeftView.h"
 #import "JJBranchAddressVC.h"
-
+#import "JJAboutUsVC.h"
 @interface JJLeftView ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic ,weak)UIWindow *myWindow;
@@ -28,8 +28,8 @@
         self.vc = vc;
         self.backgroundColor = [UIColor colorWithRed:136/255.0 green:136/255.0 blue:136/255.0 alpha:0.96/1.0];
     
-        _dataList  = @[@"關於我們",@"創辦人",@"分店地址"];
-        _imageList = @[@"icon_more_1",@"icon_more_2",@"icon_more_3"];
+        _dataList  = @[@"關於我們",@"分店地址"];
+        _imageList = @[@"icon_more_1",@"icon_more_3"];
         [self init_UI];
     }
     return self;
@@ -108,7 +108,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self closeThePopupView];
-    if (indexPath.row == 2) {
+    if (indexPath.row == 0) {
+        JJAboutUsVC *vc = [JJAboutUsVC new];
+        [self.vc.navigationController pushViewController:vc animated:YES];
+    } else if (indexPath.row == 1) {
         JJBranchAddressVC *vc = [JJBranchAddressVC new];
         [self.vc.navigationController pushViewController:vc animated:YES];
     }
