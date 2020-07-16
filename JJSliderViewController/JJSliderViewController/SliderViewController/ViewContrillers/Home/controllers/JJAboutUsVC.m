@@ -111,12 +111,12 @@
 
 - (void)layoutAndLoadingData:(id _Nullable)model
 {
-    self.headerImageView.frame = CGRectMake((ScreenWidth - 100)/2, (self.height-100)/2, 100, 100);
+    self.headerImageView.frame = CGRectMake((ScreenWidth - 128)/2, (self.height-100)/2, 128, 82);
     self.headerImageView.image = REImageName(@"logo");
     
-    CGRect headerRect = [ZDPayFuncTool getStringWidthAndHeightWithStr:@"V 2.9.2" withFont:label_font_PingFangSC_Regular(14)];
+    CGRect headerRect = [ZDPayFuncTool getStringWidthAndHeightWithStr:@"V 1.0.0" withFont:label_font_PingFangSC_Regular(14)];
     self.headerLab.frame = CGRectMake((ScreenWidth-headerRect.size.width)/2, self.headerImageView.bottom+8, headerRect.size.width, 14);
-    self.headerLab.text = @"V 2.9.2";
+    self.headerLab.text = @"V 1.0.0";
 }
 @end
 @interface JJAboutUsVC ()<UITableViewDelegate ,UITableViewDataSource>
@@ -207,41 +207,5 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 56;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 100;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    UIView *backView = [UIView new];
-    UILabel *label = [UILabel new];
-    label.textColor = [UIColor blackColor];
-    label.numberOfLines = 0;
-    [backView addSubview:label];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.font = label_font_PingFangSC_Regular(14);
-    label.frame = CGRectMake(15, 15, ScreenWidth-30, 14);
-    if (section==1)label.text = @"Copyright@ 2010-2020深圳银讯提供技术服务《支付业务许可证》Z2015044000015";
-    CGFloat height = [self getStringHeightWithText:label.text font:label_font_PingFangSC_Regular(14) viewWidth:ScreenWidth-30];
-    label.frame = CGRectMake(label.origin.x, label.origin.y, label.size.width, height);
-    return backView;
-}
-
-//获取系统默认字符串高度
-- (CGFloat)getStringHeightWithText:(NSString *)text font:(UIFont *)font viewWidth:(CGFloat)width {
-    // 设置文字属性 要和label的一致
-    NSDictionary *attrs = @{NSFontAttributeName :font};
-    CGSize maxSize = CGSizeMake(width, MAXFLOAT);
-
-    NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
-
-    // 计算文字占据的宽高
-    CGSize size = [text boundingRectWithSize:maxSize options:options attributes:attrs context:nil].size;
-
-   // 当你是把获得的高度来布局控件的View的高度的时候.size转化为ceilf(size.height)。
-    return  ceilf(size.height);
 }
 @end

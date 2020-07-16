@@ -288,7 +288,7 @@
     }
     NSDictionary *params = @{
         @"enterpriseNo": @"123",
-        @"pageNum": [NSString stringWithFormat:@"%ld",self.pageNum],
+        @"pageNum": [NSString stringWithFormat:@"%ld",(long)self.pageNum],
         @"pageSize": @"10"
     };
     

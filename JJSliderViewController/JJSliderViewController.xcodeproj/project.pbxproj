@@ -142,7 +142,7 @@
 		3881D25924BFE8A6007EED36 /* icon_mine_setup_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_mine_setup_more@2x.png"; sourceTree = "<group>"; };
 		3881D25D24BFF57D007EED36 /* 隐私协议.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "隐私协议.txt"; sourceTree = "<group>"; };
 		3881D25E24BFF57D007EED36 /* 用户协议.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "用户协议.txt"; sourceTree = "<group>"; };
-		38897F1C24A97C90002CC36F /* JJSliderViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJSliderViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38897F1C24A97C90002CC36F /* 鱼米.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "鱼米.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38897F2924A97C90002CC36F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38897F2B24A97C93002CC36F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38897F2E24A97C93002CC36F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -338,7 +338,7 @@
 		38897F1D24A97C90002CC36F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				38897F1C24A97C90002CC36F /* JJSliderViewController.app */,
+				38897F1C24A97C90002CC36F /* 鱼米.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -721,7 +721,7 @@
 			);
 			name = JJSliderViewController;
 			productName = JJSliderViewController;
-			productReference = 38897F1C24A97C90002CC36F /* JJSliderViewController.app */;
+			productReference = 38897F1C24A97C90002CC36F /* 鱼米.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1083,7 +1083,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zdpay.JJSliderViewController;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "鱼米";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1104,7 +1104,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zdpay.JJSliderViewController;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "鱼米";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
